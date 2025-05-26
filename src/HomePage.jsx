@@ -1,24 +1,18 @@
-import React from 'react';
-import NavBar from './components/layout/NavBar';
-import SearchFilterBar from './components/homepage/SearchFilterBar';
+import { Link } from 'react-router-dom';
 import FeaturedPlants from './components/homepage/FeaturedPlants';
 import TipOfTheDay from './components/homepage/TipOfTheDay';
 import MyGardenPreview from './components/homepage/MyGardenPreview';
-import CareTopics from './components/homepage/CareTopics';
-import Footer from './components/layout/Footer';
+import About from "./components/homepage/About";
 
 function HomePage() {
   return (
     <div>
-      <NavBar />
       <main>
-        <SearchFilterBar />
-        <FeaturedPlants />
         <TipOfTheDay />
+        <FeaturedPlants />
         <MyGardenPreview />
-        <CareTopics />
+        <About />
       </main>
-      <Footer />
     </div>
   );
 }

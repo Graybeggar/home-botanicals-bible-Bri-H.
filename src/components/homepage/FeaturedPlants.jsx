@@ -1,17 +1,28 @@
+import React from "react";
+import plants from "../plant-catalog-page/plants";
+
 function FeaturedPlants() {
-  const plants = [
-    { name: 'Snake Plant', description: 'Low light | Safe'},
-    { name: 'Spider Plant', description: 'Bright light | Pet-safe'},
-    { name: 'Pothos', description: 'Easy care'}
-  ];
+  const today = new Date().toISOString().split("T")[0].replace(/-/g, "");
+
+  function seededRandom(seed) {
+    let x = parseInt(seed, 10);
+    return () => {
+      x = (x * 9301 + 49297) % 233280;
+      return x / 233280;
+    };
+  }
+
+  const random = seededRandom(today);
+  const shuffledPlants = [...plants].sort(() => random() - 0.5);
+  const featured = shuffledPlants.slice(0, 3);
 
   return (
-    <section >
+    <section>
       <h2>Featured Plants</h2>
       <div>
-        {plants.map((plant, idx) => (
-          <div>
-            <h3 className="text-md font-bold">{plant.name}</h3>
+        {featured.map((plant) => (
+          <div key={plant.id}>
+            <h3>{plant.name}</h3>
             <p>{plant.description}</p>
           </div>
         ))}
