@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import plants from "../plant-catalog-page/plants";
 import { loadMyGarden, saveMyGarden } from "../user-storage/LocalStorage";
 import CareTips from "../plant-catalog-page/CareTips";
+import PlantCard from "../plant-catalog-page/PlantCard"; 
 
 function PlantCatalog() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -24,7 +25,6 @@ function PlantCatalog() {
     };
 
     const updated = garden.filter((p) => p.id !== plant.id).concat(newPlant);
-
     setGarden(updated);
     saveMyGarden(updated);
   };
@@ -90,18 +90,13 @@ function PlantCatalog() {
         <ul>
           {filteredPlants.map((plant) => (
             <li key={plant.id} style={{ marginBottom: "2rem" }}>
-              <h3>{plant.name}</h3>
-              <p>{plant.description}</p>
-              <p>
-                <strong>Light:</strong> {plant.light} | <strong>Size:</strong> {plant.size} |{" "}
-                <strong>{plant.petSafe ? "Pet-Safe" : "Not Pet-Safe"}</strong>
-              </p>
+              <PlantCard plant={plant} />
 
               {garden.some((p) => p.id === plant.id) ? (
                 <button onClick={() => removeFromGarden(plant.id)}>Remove from My Garden</button>
               ) : (
                 <button onClick={() => addToGarden(plant)}>Add to My Garden</button>
-              )}{" "}
+              )}
 
               <button onClick={() => toggleTips(plant.id)}>
                 {visibleTips[plant.id] ? "Hide Care Tips" : "Show Care Tips"}

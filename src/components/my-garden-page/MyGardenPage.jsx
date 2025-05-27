@@ -67,33 +67,43 @@ function MyGardenPage() {
 
       {garden.length > 0 ? (
         <ul>
-          {garden.map((plant) => (
-            <li key={plant.id} style={{ marginBottom: "2rem" }}>
-              <h3>{plant.name}</h3>
-              <p>{plant.description}</p>
+  {garden.map((plant) => (
+    <li key={plant.id} style={{ marginBottom: "2rem", display: "flex", gap: "1rem", alignItems: "flex-start" }}>
+      {plant.image && (
+        <img
+          src={plant.image}
+          alt={plant.name}
+          style={{ width: "150px", height: "161px", borderRadius: "8px", marginTop: "24px" }}
+        />
+      )}
 
-              <p>
-                <strong>Last Watered:</strong> {formatDate(plant.lastWatered)}
-              </p>
-              <p>
-                <strong>Next Watering In:</strong> {daysUntilWatering(plant)}
-              </p>
+      <div>
+        <h3>{plant.name}</h3>
+        <p>{plant.description}</p>
 
-              <button onClick={() => removePlant(plant.id)}>Remove</button>{" "}
-              <button onClick={() => markAsWatered(plant.id)}>Mark as Watered</button>{" "}
-              <button onClick={() => toggleTips(plant.id)}>
-                {visibleTips[plant.id] ? "Hide Care Tips" : "Show Care Tips"}
-              </button>
+        <p>
+          <strong>Last Watered:</strong> {formatDate(plant.lastWatered)}
+        </p>
+        <p>
+          <strong>Next Watering In:</strong> {daysUntilWatering(plant)}
+        </p>
 
-              {visibleTips[plant.id] && plant.careTips && <CareTips careTips={plant.careTips} />}
-            </li>
-          ))}
-        </ul>
+        <button onClick={() => removePlant(plant.id)}>Remove</button>{" "}
+        <button onClick={() => markAsWatered(plant.id)}>Mark as Watered</button>{" "}
+        <button onClick={() => toggleTips(plant.id)}>
+          {visibleTips[plant.id] ? "Hide Care Tips" : "Show Care Tips"}
+        </button>
+
+        {visibleTips[plant.id] && plant.careTips && <CareTips careTips={plant.careTips} />}
+      </div>
+    </li>
+  ))}
+</ul>
       ) : (
         <p>Your garden is empty. Add some plants from the catalog!</p>
       )}
 
-      <p>COMING SOON: add more features like group plants for each room, add your own notes.</p>
+      <p>COMING SOON: add more features like group plants for each room, search, filter, edit last watered date, and add your own notes and plant pictures.</p>
     </section>
   );
 }

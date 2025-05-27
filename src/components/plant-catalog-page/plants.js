@@ -2,6 +2,7 @@ const plants = [
   {
     id: 1,
     name: "Snake Plant (Dracaena trifasciata)",
+    image: "/images/snake-plant.jpg",
     description: "Known for their resilience, air-purifying abilities, and low-maintenance nature.",
     light: "Low",
     size: "Large",
@@ -23,6 +24,7 @@ const plants = [
   {
     id: 2,
     name: "Spider Plant (Chlorophytum comosum)",
+    image: "/images/spider-plant.jpg",
     description: "Fast-growing, tolerant of neglect, and able to thrive in nearly any type of condition.",
     light: "Bright",
     size: "Small",

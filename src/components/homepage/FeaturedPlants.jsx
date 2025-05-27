@@ -19,10 +19,18 @@ function FeaturedPlants() {
   return (
     <section>
       <h2>Featured Plants</h2>
-      <div>
+      <div style={{ display: "flex", gap: "1rem" }}>
         {featured.map((plant) => (
-          <div key={plant.id}>
+          <div key={plant.id} style={{ border: "1px solid #ccc", padding: "1rem", maxWidth: "200px" }}>
+            {/* Plant Image */}
+            <img 
+              src={plant.image} 
+              alt={plant.name} 
+              style={{ width: "100%", height: "auto", borderRadius: "8px" }} 
+            />
+            {/* Plant Name */}
             <h3>{plant.name}</h3>
+            {/* Plant Description */}
             <p>{plant.description}</p>
           </div>
         ))}
