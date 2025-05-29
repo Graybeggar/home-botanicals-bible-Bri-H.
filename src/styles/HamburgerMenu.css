@@ -1,0 +1,37 @@
+/* ===== Desktop Styles ===== */
+
+/* Navigation links are displayed inline with spacing */
+.nav-links {
+  display: flex;
+  gap: 1rem;
+}
+
+/* Hamburger menu button is hidden on larger screens */
+.hamburger {
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+
+/* ===== Mobile Styles ===== */
+@media (max-width: 600px) {
+  /* Show hamburger button on small screens */
+  .hamburger {
+    display: block;
+  }
+
+  /* Hide nav links by default on mobile */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    margin-top: 1rem;
+  }
+
+  /* When nav is open, show the nav links in a column */
+  .nav-links.open {
+    display: flex;
+  }
+}

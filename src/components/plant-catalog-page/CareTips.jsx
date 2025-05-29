@@ -5,9 +5,10 @@ export default function CareTips({ careTips }) {
     <div style={{ marginTop: "1rem", border: "1px solid #ccc", padding: "1rem" }}>
       <h4>📚 Care Tips</h4>
 
+      {/* Light Levels: Supports array or single string */}
       <h5>🌓 Light Levels</h5>
       {Array.isArray(careTips.light) ? (
-        <ul>
+        <ul className="light-level-list">
           {careTips.light.map((tip, i) => (
             <li key={i}>{tip}</li>
           ))}
@@ -16,9 +17,11 @@ export default function CareTips({ careTips }) {
         <p>{careTips.light}</p>
       )}
 
+      {/* Watering Techniques */}
       <h5>💧 Watering Techniques</h5>
       <p>{careTips.watering}</p>
 
+      {/* Soil Tips (conditionally rendered if present) */}
       {careTips.soil && (
         <>
           <h5>🌱 Soil</h5>
@@ -26,9 +29,11 @@ export default function CareTips({ careTips }) {
         </>
       )}
 
+      {/* Pest Control */}
       <h5>🐜 Pest Control</h5>
       <p>{careTips.pests}</p>
 
+      {/* Propagation Methods */}
       <h5>🪴 Propagation</h5>
       <p>{careTips.propagation}</p>
     </div>

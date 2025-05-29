@@ -1,16 +1,30 @@
+// Import React library
 import React from "react";
 
+// Functional component to display contact information
 function Contact() {
   return (
     <section>
       <h2>Contact Us</h2>
-      <p>If you have questions, feedback, or need support, feel free to reach out:</p>
+
+      {/* Contact instructions */}
+      <p>
+        If you have questions, feedback, or need support, feel free to reach out:
+      </p>
+
+      {/* Contact methods list */}
       <ul>
-        <li>Email: <a href="mailto:support@homebotanicals.app">support@homebotanicals.app</a></li>
-        <li>Instagram: <a href="https://instagram.com/homebotanicals" target="_blank" rel="noreferrer">@homebotanicals</a></li>
+        {/* Email contact */}
+        <li>
+          Email:{" "}
+          <a href="mailto:support@homebotanicalsbible.app">
+            support@homebotanicalsbible.app
+          </a>
+        </li>
       </ul>
     </section>
   );
 }
 
+// Export the component for use in other parts of the app
 export default Contact;

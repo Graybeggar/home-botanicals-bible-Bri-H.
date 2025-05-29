@@ -14,6 +14,7 @@ function PlantCard({ plant }) {
         maxWidth: "600px",
       }}
     >
+      {/* Plant image */}
       <img
         src={plant.image}
         alt={plant.name}
@@ -24,6 +25,8 @@ function PlantCard({ plant }) {
           borderRadius: "8px",
         }}
       />
+
+      {/* Plant name and description */}
       <div>
         <h3 style={{ margin: "0 0 0.5rem" }}>{plant.name}</h3>
         <p style={{ margin: 0 }}>{plant.description}</p>
